@@ -67,6 +67,9 @@ main() {
   install_brew_dependencies
   install_asdf_dependencies
   install_ruby_dependencies
+
+  log_divider
+  log "${green}Bootstrap successful${reset} ✅"
 }
 
 main
