@@ -61,12 +61,21 @@ install_ruby_dependencies() {
   bundle.install
 }
 
+setup_db() {
+  log "Initialising database"
+  bin/rails db:setup
+  log "Migrating database"
+  bin/rails db:migrate
+}
+
 main() {
   log_header
 
   install_brew_dependencies
   install_asdf_dependencies
   install_ruby_dependencies
+
+  setup_db
 
   log_divider
   log "${green}Bootstrap successful${reset} ✅"
