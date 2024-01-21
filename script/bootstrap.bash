@@ -2,7 +2,6 @@
 set -e
 
 source "$(dirname "${BASH_SOURCE[0]}")/asdf.bash"
-source "$(dirname "${BASH_SOURCE[0]}")/bundle.bash"
 source "$(dirname "${BASH_SOURCE[0]}")/colour.bash"
 
 #!/usr/bin/env bash
@@ -56,26 +55,13 @@ install_asdf_dependencies() {
   asdf.install_toolchain "ruby" "nodejs" "yarn" "postgres"
 }
 
-install_ruby_dependencies() {
-  log "Installing Ruby gems"
-  bundle.install
-}
-
-setup_db() {
-  log "Initialising database"
-  bin/rails db:setup
-  log "Migrating database"
-  bin/rails db:migrate
-}
-
 main() {
   log_header
 
   install_brew_dependencies
   install_asdf_dependencies
-  install_ruby_dependencies
 
-  setup_db
+  bin/setup
 
   log_divider
   log "${green}Bootstrap successful${reset} ✅"
