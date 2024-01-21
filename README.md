@@ -7,7 +7,17 @@ A bare-bones rails app (with packages flavour) for use in interviews (do *not* f
 
 ## Setup
 
-On a mac you can run `script/bootstrap.bash` to use an opinionated setup with homebrew + asdf, or setup however you'd like.
+On a mac you can run an opinionated setup with homebrew + asdf to completly get rolling:
+
+```
+script/bootstrap.bash
+```
+
+Or ensure you have all the dependencies (and versions) listed in [.tool-versions](https://github.com/buildkite/boxkite/blob/main/.tool-versions) then run:
+
+```
+bin/setup
+```
 
 ## Running the app
 
