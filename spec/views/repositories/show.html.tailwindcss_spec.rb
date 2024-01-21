@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "repositories/show", type: :view do
+  let(:repository_type) { RepositoryType.create(name: 'ruby') }
+
   before(:each) do
     assign(:repository, Repository.create!(
-      repository_type: nil,
+      repository_type: repository_type,
       name: "Name"
     ))
   end
