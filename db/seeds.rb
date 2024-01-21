@@ -7,3 +7,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+
+types = %w( ruby python java )
+types.each do |type|
+  RepositoryType.find_or_create_by!(name: type)
+end
+["kite", "drachen", "pipas"].each_with_index do |repo_name, index|
+  repo = Repository.find_or_create_by!(name: repo_name, repository_type: RepositoryType.find(index+1))
+end
