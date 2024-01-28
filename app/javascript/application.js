@@ -1,2 +1,5 @@
-import "@hotwired/turbo-rails";
-import "./controllers";
+import '@hotwired/turbo-rails';
+import './controllers';
+
+// Top level React components
+import './components/Header';
