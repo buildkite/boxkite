@@ -55,6 +55,11 @@ install_asdf_dependencies() {
   asdf.install_toolchain "ruby" "nodejs" "yarn" "postgres"
 }
 
+remove_chromedriver_quarantine_flag() {
+  log "Removing com.apple.quarantine flag from chromedriver"
+  xattr -rd com.apple.quarantine `which chromedriver`
+}
+
 main() {
   log_header
 
@@ -62,6 +67,8 @@ main() {
   install_asdf_dependencies
 
   bin/setup
+
+  remove_chromedriver_quarantine_flag
 
   log_divider
   log "${green}Bootstrap successful${reset} ✅"
