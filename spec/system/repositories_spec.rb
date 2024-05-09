@@ -2,12 +2,12 @@ require 'rails_helper'
 
 describe 'repositories', type: :system do
   before do
-    %w[ruby python java].each do |type|
+    types = %w[ruby python java].map do |type|
       RepositoryType.create!(name: type)
     end
 
     %w[kite drachen pipas].each_with_index do |repo_name, index|
-      Repository.create!(name: repo_name, repository_type: RepositoryType.find(index + 1))
+      Repository.create!(name: repo_name, repository_type: types[index])
     end
   end
 
